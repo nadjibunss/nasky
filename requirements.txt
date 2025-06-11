@@ -12,3 +12,4 @@ pillow
 tavily-python
 numpy
 pandas
+langgraph
