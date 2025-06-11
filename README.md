@@ -1,6 +1,6 @@
 # VitaFlex-AI 🏋️‍♀️🤖
 
-<a href="https://grief-compus.onrender.com/">
+<a href="https://vitaflex-ai.onrender.com/">
   <img src="com/mhire/ui/public/live-demo.png" alt="Live Demo" width="100" />
 </a>
 
