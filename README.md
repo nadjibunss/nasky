@@ -1,6 +1,12 @@
 # VitaFlex-AI 🏋️‍♀️🤖
 
+<a href="https://grief-compus.onrender.com/">
+  <img src="com/mhire/ui/public/live-demo.png" alt="Live Demo" width="100" />
+</a>
+
 An AI-powered wellness platform that delivers personalized fitness and nutrition guidance for a smarter, healthier lifestyle. VitaFlex-AI combines FastAPI backend with OpenAI GPT-4o integration and a modern React frontend to create a comprehensive wellness companion.
+
+![Grief Compass](com/mhire/ui/public/vfai.png)
 
 ## ✨ Features
 
