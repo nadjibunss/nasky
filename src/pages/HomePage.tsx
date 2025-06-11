@@ -42,10 +42,9 @@ const HomePage: React.FC = () => {
 
 
   const stats = [
-  { icon: Users, value: '10K+', label: 'Active Users' },
   { icon: TrendingUp, value: '95%', label: 'Success Rate' },
   { icon: Heart, value: '24/7', label: 'AI Support' },
-  { icon: Target, value: '1000+', label: 'Goals Achieved' }];
+  { icon: Target, value: '4+', label: 'AI Features' }];
 
 
   return (
@@ -54,9 +53,9 @@ const HomePage: React.FC = () => {
       <section className="text-center space-y-6" data-id="wlchtw5bb" data-path="src/pages/HomePage.tsx">
         <div className="space-y-4" data-id="71qlmxt58" data-path="src/pages/HomePage.tsx">
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight" data-id="u26g92sfm" data-path="src/pages/HomePage.tsx">
-            Your AI{' '}
+          VitaFlex{' '}
             <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent" data-id="nbxn7hhqo" data-path="src/pages/HomePage.tsx">
-              Gym Coach
+              AI
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed" data-id="spmv8o4q8" data-path="src/pages/HomePage.tsx">
@@ -79,7 +78,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8" data-id="wg45fw1vk" data-path="src/pages/HomePage.tsx">
+      <section className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8" data-id="wg45fw1vk" data-path="src/pages/HomePage.tsx">
         {stats.map((stat, index) =>
         <Card key={index} className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 text-center p-4 hover:scale-105 transition-transform duration-300" data-id="dwmhalcs1" data-path="src/pages/HomePage.tsx">
             <CardContent className="p-0 space-y-2" data-id="3cxuhwaqi" data-path="src/pages/HomePage.tsx">
@@ -99,7 +98,7 @@ const HomePage: React.FC = () => {
             <span className="text-orange-500" data-id="iq3jekpqg" data-path="src/pages/HomePage.tsx">Fitness Success</span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto" data-id="v4sftqnjp" data-path="src/pages/HomePage.tsx">
-            Our comprehensive platform combines cutting-edge AI technology with proven fitness science
+            This comprehensive platform combines cutting-edge AI technology with proven fitness science
             to deliver results that exceed your expectations.
           </p>
         </div>

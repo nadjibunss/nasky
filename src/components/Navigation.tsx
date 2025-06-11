@@ -30,7 +30,7 @@ const Navigation: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2" data-id="mk6wtw7ui" data-path="src/components/Navigation.tsx">
             <Dumbbell className="h-8 w-8 text-orange-500" data-id="okpos4vkg" data-path="src/components/Navigation.tsx" />
-            <span className="text-2xl font-bold text-white" data-id="mgtme57bs" data-path="src/components/Navigation.tsx">AI Gym Coach</span>
+            <span className="text-2xl font-bold text-white" data-id="mgtme57bs" data-path="src/components/Navigation.tsx">VitaFlex AI</span>
           </Link>
 
           {/* Navigation Links */}

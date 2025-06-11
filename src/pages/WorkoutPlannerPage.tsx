@@ -47,12 +47,40 @@ const WorkoutPlannerPage: React.FC = () => {
     try {
       console.log('Generating workout plan for profile:', profile);
       const generatedPlan = await workoutPlanService.generateWorkoutPlan(profile);
-      setWorkoutPlan(generatedPlan);
-
-      toast({
-        title: "Workout Plan Generated!",
-        description: "Your personalized workout plan is ready. Click on any day to see exercises."
+      console.log('Generated workout plan received in component:', generatedPlan);
+      console.log('Workout plan structure check:', {
+        hasWorkoutPlan: !!generatedPlan?.workout_plan,
+        isWorkoutPlanArray: Array.isArray(generatedPlan?.workout_plan),
+        workoutPlanLength: generatedPlan?.workout_plan?.length,
+        fullStructure: JSON.stringify(generatedPlan, null, 2)
       });
+      
+      // Ensure the workout plan has the expected structure before setting it
+      if (generatedPlan && 
+          generatedPlan.workout_plan && 
+          Array.isArray(generatedPlan.workout_plan) && 
+          generatedPlan.workout_plan.length > 0) {
+        
+        // Create a new object to ensure React detects the state change
+        const formattedWorkoutPlan = {
+          workout_plan: [...generatedPlan.workout_plan.map(day => ({
+            ...day,
+            warm_up: { ...day.warm_up },
+            main_routine: { ...day.main_routine },
+            cool_down: { ...day.cool_down }
+          }))]
+        };
+        
+        console.log('Setting formatted workout plan:', formattedWorkoutPlan);
+        setWorkoutPlan(formattedWorkoutPlan);
+        
+        toast({
+          title: "Workout Plan Generated!",
+          description: "Your personalized workout plan is ready. Expand each day to see your exercises."
+        });
+      } else {
+        throw new Error('Received workout plan data is missing required properties');
+      }
     } catch (error) {
       console.error('Error generating workout plan:', error);
       toast({
