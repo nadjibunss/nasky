@@ -4,6 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  root: 'com/mhire/ui',
   server: {
     host: "::",
     port: 8080
@@ -13,7 +14,18 @@ export default defineConfig(({ mode }) => ({
 
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src")
+      "@": path.resolve(__dirname, "src")
     }
-  }
+  },
+  build: {
+    outDir: '../../dist',
+    sourcemap: mode === 'development',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+        },
+      },
+    },
+  },
 }));

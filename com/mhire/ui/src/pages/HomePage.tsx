@@ -17,34 +17,34 @@ const HomePage: React.FC = () => {
   const features = [
   {
     icon: Brain,
-    title: 'AI-Powered Coaching',
-    description: 'Get personalized advice from our intelligent fitness coach that learns from your goals and preferences.',
+    title: 'Pelatihan Berbasis AI',
+    description: 'Dapatkan saran yang dipersonalisasi dari pelatih kebugaran cerdas kami yang belajar dari tujuan dan preferensi Anda.',
     color: 'text-blue-500'
   },
   {
     icon: UtensilsCrossed,
-    title: 'Custom Meal Plans',
-    description: 'Receive tailored nutrition plans based on your dietary preferences, allergies, and fitness goals.',
+    title: 'Rencana Makan Kustom',
+    description: 'Terima rencana nutrisi yang disesuaikan berdasarkan preferensi diet, alergi, dan tujuan kebugaran Anda.',
     color: 'text-green-500'
   },
   {
     icon: Dumbbell,
-    title: 'Workout Routines',
-    description: 'Access scientifically-designed workout plans that adapt to your fitness level and objectives.',
+    title: 'Rutinitas Latihan',
+    description: 'Akses rencana latihan yang dirancang secara ilmiah yang beradaptasi dengan tingkat kebugaran dan tujuan Anda.',
     color: 'text-orange-500'
   },
   {
     icon: Camera,
-    title: 'Food Scanner',
-    description: 'Scan your meals to get instant nutritional analysis and track your dietary intake effortlessly.',
+    title: 'Pemindai Makanan',
+    description: 'Pindai makanan Anda untuk mendapatkan analisis nutrisi instan dan lacak asupan diet Anda dengan mudah.',
     color: 'text-purple-500'
   }];
 
 
   const stats = [
-  { icon: TrendingUp, value: '95%', label: 'Success Rate' },
-  { icon: Heart, value: '24/7', label: 'AI Support' },
-  { icon: Target, value: '4+', label: 'AI Features' }];
+  { icon: TrendingUp, value: '95%', label: 'Tingkat Keberhasilan' },
+  { icon: Heart, value: '24/7', label: 'Dukungan AI' },
+  { icon: Target, value: '4+', label: 'Fitur AI' }];
 
 
   return (
@@ -53,26 +53,26 @@ const HomePage: React.FC = () => {
       <section className="text-center space-y-6" data-id="wlchtw5bb" data-path="src/pages/HomePage.tsx">
         <div className="space-y-4" data-id="71qlmxt58" data-path="src/pages/HomePage.tsx">
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight" data-id="u26g92sfm" data-path="src/pages/HomePage.tsx">
-          VitaFlex{' '}
+          Nasky{' '}
             <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent" data-id="nbxn7hhqo" data-path="src/pages/HomePage.tsx">
-              AI
+              Ai
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed" data-id="spmv8o4q8" data-path="src/pages/HomePage.tsx">
-            Transform your fitness journey with personalized AI coaching, custom meal plans, 
-            and intelligent workout routines tailored just for you.
+            Ubah perjalanan kebugaran Anda dengan pelatihan AI yang dipersonalisasi, rencana makan khusus,
+            dan rutinitas latihan cerdas yang dirancang khusus untuk Anda.
           </p>
         </div>
         
         <div className="flex flex-wrap justify-center gap-3" data-id="jsiivr5dz" data-path="src/pages/HomePage.tsx">
           <Badge variant="secondary" className="px-4 py-2 bg-orange-600 text-white text-sm" data-id="g46dwfigk" data-path="src/pages/HomePage.tsx">
-            🔥 Personalized Plans
+            🔥 Rencana yang Dipersonalisasi
           </Badge>
           <Badge variant="secondary" className="px-4 py-2 bg-red-600 text-white text-sm" data-id="5xio2l2n4" data-path="src/pages/HomePage.tsx">
-            🧠 AI-Powered
+            🧠 Didukung AI
           </Badge>
           <Badge variant="secondary" className="px-4 py-2 bg-gray-600 text-white text-sm" data-id="2kg4sj9a4" data-path="src/pages/HomePage.tsx">
-            📱 Mobile Friendly
+            📱 Ramah Seluler
           </Badge>
         </div>
       </section>
@@ -94,12 +94,12 @@ const HomePage: React.FC = () => {
       <section className="space-y-8" data-id="a8f114tk3" data-path="src/pages/HomePage.tsx">
         <div className="text-center space-y-4" data-id="7r1uwi1hm" data-path="src/pages/HomePage.tsx">
           <h2 className="text-3xl md:text-4xl font-bold text-white" data-id="yk63585qf" data-path="src/pages/HomePage.tsx">
-            Everything You Need for{' '}
-            <span className="text-orange-500" data-id="iq3jekpqg" data-path="src/pages/HomePage.tsx">Fitness Success</span>
+            Semua yang Anda Butuhkan untuk{' '}
+            <span className="text-orange-500" data-id="iq3jekpqg" data-path="src/pages/HomePage.tsx">Kesuksesan Kebugaran</span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto" data-id="v4sftqnjp" data-path="src/pages/HomePage.tsx">
-            This comprehensive platform combines cutting-edge AI technology with proven fitness science
-            to deliver results that exceed your expectations.
+            Platform komprehensif ini menggabungkan teknologi AI canggih dengan ilmu kebugaran yang terbukti
+            untuk memberikan hasil yang melebihi harapan Anda.
           </p>
         </div>
 
@@ -129,12 +129,12 @@ const HomePage: React.FC = () => {
       <section className="space-y-8" data-id="g694p76pw" data-path="src/pages/HomePage.tsx">
         <div className="text-center space-y-4" data-id="2igazb9fo" data-path="src/pages/HomePage.tsx">
           <h2 className="text-3xl md:text-4xl font-bold text-white" data-id="vs67dbdza" data-path="src/pages/HomePage.tsx">
-            Get Started with Your{' '}
-            <span className="text-orange-500" data-id="1cs0huz0r" data-path="src/pages/HomePage.tsx">Personal Profile</span>
+            Mulai dengan{' '}
+            <span className="text-orange-500" data-id="1cs0huz0r" data-path="src/pages/HomePage.tsx">Profil Pribadi Anda</span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto" data-id="jhaokxbls" data-path="src/pages/HomePage.tsx">
-            Tell us about your fitness goals and preferences so we can create the perfect 
-            workout and nutrition plan just for you.
+            Beri tahu kami tentang tujuan dan preferensi kebugaran Anda sehingga kami dapat membuat rencana
+            latihan dan nutrisi yang sempurna hanya untuk Anda.
           </p>
         </div>
 
@@ -145,20 +145,20 @@ const HomePage: React.FC = () => {
       <section className="text-center space-y-6 py-12" data-id="en3quyvg9" data-path="src/pages/HomePage.tsx">
         <div className="bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-2xl p-8 border border-orange-500/20" data-id="24xl4w343" data-path="src/pages/HomePage.tsx">
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-4" data-id="794grb5yc" data-path="src/pages/HomePage.tsx">
-            Ready to Transform Your Body?
+            Siap untuk Mengubah Tubuh Anda?
           </h3>
           <p className="text-gray-300 text-lg mb-6 max-w-xl mx-auto" data-id="s1ie86yau" data-path="src/pages/HomePage.tsx">
-            Join thousands of users who have already achieved their fitness goals with our AI-powered platform.
+            Bergabunglah dengan ribuan pengguna yang telah mencapai tujuan kebugaran mereka dengan platform bertenaga AI kami.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center" data-id="7bzv8p3r3" data-path="src/pages/HomePage.tsx">
             <Badge variant="outline" className="border-green-500 text-green-400 px-4 py-2" data-id="vdvz0vj2b" data-path="src/pages/HomePage.tsx">
-              ✓ No subscription required
+              ✓ Tanpa perlu berlangganan
             </Badge>
             <Badge variant="outline" className="border-blue-500 text-blue-400 px-4 py-2" data-id="zc9h46dk9" data-path="src/pages/HomePage.tsx">
-              ✓ Instant results
+              ✓ Hasil instan
             </Badge>
             <Badge variant="outline" className="border-purple-500 text-purple-400 px-4 py-2" data-id="77tasmw48" data-path="src/pages/HomePage.tsx">
-              ✓ Personalized approach
+              ✓ Pendekatan yang dipersonalisasi
             </Badge>
           </div>
         </div>

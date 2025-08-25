@@ -1,10 +1,11 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
   content: [
-  "./src/**/*.{ts,tsx}"],
+    './com/mhire/ui/index.html',
+    './com/mhire/ui/src/**/*.{ts,tsx}',
+  ],
 
   prefix: "",
   theme: {

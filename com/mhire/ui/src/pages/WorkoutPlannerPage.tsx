@@ -34,8 +34,8 @@ const WorkoutPlannerPage: React.FC = () => {
   const generateWorkoutPlan = async () => {
     if (!profile) {
       toast({
-        title: "Profile Required",
-        description: "Please complete your profile first to generate a workout plan.",
+        title: "Profil Diperlukan",
+        description: "Silakan lengkapi profil Anda terlebih dahulu untuk membuat rencana latihan.",
         variant: "destructive"
       });
       navigate('/');
@@ -75,17 +75,17 @@ const WorkoutPlannerPage: React.FC = () => {
         setWorkoutPlan(formattedWorkoutPlan);
         
         toast({
-          title: "Workout Plan Generated!",
-          description: "Your personalized workout plan is ready. Expand each day to see your exercises."
+          title: "Rencana Latihan Dihasilkan!",
+          description: "Rencana latihan pribadi Anda sudah siap. Perluas setiap hari untuk melihat latihan Anda."
         });
       } else {
-        throw new Error('Received workout plan data is missing required properties');
+        throw new Error('Data rencana latihan yang diterima tidak memiliki properti yang diperlukan');
       }
     } catch (error) {
       console.error('Error generating workout plan:', error);
       toast({
-        title: "Generation Failed",
-        description: "Failed to generate workout plan. Please try again.",
+        title: "Pembuatan Gagal",
+        description: "Gagal membuat rencana latihan. Silakan coba lagi.",
         variant: "destructive"
       });
     } finally {
@@ -99,15 +99,15 @@ const WorkoutPlannerPage: React.FC = () => {
   };
 
   const sectionTypes = [
-  { key: 'warm_up', label: 'Warm Up', icon: Activity, color: 'from-blue-500 to-cyan-500' },
-  { key: 'main_routine', label: 'Main Routine', icon: Dumbbell, color: 'from-orange-500 to-red-500' },
-  { key: 'cool_down', label: 'Cool Down', icon: Flame, color: 'from-green-500 to-teal-500' }];
+  { key: 'warm_up', label: 'Pemanasan', icon: Activity, color: 'from-blue-500 to-cyan-500' },
+  { key: 'main_routine', label: 'Latihan Utama', icon: Dumbbell, color: 'from-orange-500 to-red-500' },
+  { key: 'cool_down', label: 'Pendinginan', icon: Flame, color: 'from-green-500 to-teal-500' }];
 
 
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]" data-id="573h0i25i" data-path="src/pages/WorkoutPlannerPage.tsx">
-        <LoadingSpinner size="lg" text="Creating your personalized workout plan..." data-id="u53x2dk40" data-path="src/pages/WorkoutPlannerPage.tsx" />
+        <LoadingSpinner size="lg" text="Membuat rencana latihan pribadi Anda..." data-id="u53x2dk40" data-path="src/pages/WorkoutPlannerPage.tsx" />
       </div>);
 
   }
@@ -117,13 +117,13 @@ const WorkoutPlannerPage: React.FC = () => {
       {/* Header */}
       <div className="text-center space-y-4" data-id="6v1slvesh" data-path="src/pages/WorkoutPlannerPage.tsx">
         <h1 className="text-4xl md:text-5xl font-bold text-white" data-id="yfcaykdof" data-path="src/pages/WorkoutPlannerPage.tsx">
-          Your Personal{' '}
+          Rencana Latihan{' '}
           <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent" data-id="3pkqmix7a" data-path="src/pages/WorkoutPlannerPage.tsx">
-            Workout Plan
+            Pribadi Anda
           </span>
         </h1>
         <p className="text-xl text-gray-300 max-w-3xl mx-auto" data-id="ldwiok81p" data-path="src/pages/WorkoutPlannerPage.tsx">
-          Get a scientifically-designed fitness routine tailored to your goals, fitness level, and preferences.
+          Dapatkan rutinitas kebugaran yang dirancang secara ilmiah yang disesuaikan dengan tujuan, tingkat kebugaran, dan preferensi Anda.
         </p>
       </div>
 
@@ -133,10 +133,10 @@ const WorkoutPlannerPage: React.FC = () => {
           <CardHeader className="text-center" data-id="tvnh7ub1c" data-path="src/pages/WorkoutPlannerPage.tsx">
             <CardTitle className="text-2xl text-white flex items-center justify-center space-x-2" data-id="rbcxrobwp" data-path="src/pages/WorkoutPlannerPage.tsx">
               <Dumbbell className="h-6 w-6 text-orange-500" data-id="5qf6zcfb4" data-path="src/pages/WorkoutPlannerPage.tsx" />
-              <span data-id="zh9p1dzlo" data-path="src/pages/WorkoutPlannerPage.tsx">Ready to Create Your Workout Plan?</span>
+              <span data-id="zh9p1dzlo" data-path="src/pages/WorkoutPlannerPage.tsx">Siap Membuat Rencana Latihan Anda?</span>
             </CardTitle>
             <CardDescription className="text-gray-300 text-lg" data-id="fjk99v6dh" data-path="src/pages/WorkoutPlannerPage.tsx">
-              Our AI will design a comprehensive workout routine that matches your fitness goals and current level.
+              AI kami akan merancang rutinitas latihan komprehensif yang sesuai dengan tujuan dan tingkat kebugaran Anda saat ini.
             </CardDescription>
           </CardHeader>
           <CardContent className="text-center" data-id="30djq0nfn" data-path="src/pages/WorkoutPlannerPage.tsx">
@@ -147,11 +147,11 @@ const WorkoutPlannerPage: React.FC = () => {
             size="lg" data-id="fad4p9sw1" data-path="src/pages/WorkoutPlannerPage.tsx">
 
               <Dumbbell className="h-5 w-5 mr-2" data-id="s3hth9bjv" data-path="src/pages/WorkoutPlannerPage.tsx" />
-              Generate My Workout Plan
+              Hasilkan Rencana Latihan Saya
             </Button>
             {!profile &&
           <p className="text-red-400 text-sm mt-2" data-id="9hok0zxhz" data-path="src/pages/WorkoutPlannerPage.tsx">
-                Complete your profile first to generate a workout plan
+                Lengkapi profil Anda terlebih dahulu untuk membuat rencana latihan
               </p>
           }
           </CardContent>
@@ -166,10 +166,10 @@ const WorkoutPlannerPage: React.FC = () => {
             <CardHeader data-id="pyo9gzo6q" data-path="src/pages/WorkoutPlannerPage.tsx">
               <CardTitle className="text-xl text-white flex items-center space-x-2" data-id="jzw0v0wmi" data-path="src/pages/WorkoutPlannerPage.tsx">
                 <Calendar className="h-5 w-5 text-orange-500" data-id="hfknlpb13" data-path="src/pages/WorkoutPlannerPage.tsx" />
-                <span data-id="q7dh7w9j3" data-path="src/pages/WorkoutPlannerPage.tsx">3-Day Workout Program</span>
+                <span data-id="q7dh7w9j3" data-path="src/pages/WorkoutPlannerPage.tsx">Program Latihan 3 Hari</span>
               </CardTitle>
               <CardDescription className="text-gray-300" data-id="wk8ex0ldc" data-path="src/pages/WorkoutPlannerPage.tsx">
-                A comprehensive training plan designed to maximize your results and keep you motivated.
+                Rencana pelatihan komprehensif yang dirancang untuk memaksimalkan hasil Anda dan membuat Anda tetap termotivasi.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -196,7 +196,7 @@ const WorkoutPlannerPage: React.FC = () => {
                         </CardTitle>
                         <div className="flex items-center space-x-2" data-id="lkuidgzdq" data-path="src/pages/WorkoutPlannerPage.tsx">
                           <Badge variant="outline" className="border-orange-500 text-orange-400" data-id="yow0h0nyo" data-path="src/pages/WorkoutPlannerPage.tsx">
-                            3 Sections
+                            3 Bagian
                           </Badge>
                           {expandedDay === day.day ?
                       <ChevronDown className="h-5 w-5 text-gray-400" data-id="uvs4nvnuj" data-path="src/pages/WorkoutPlannerPage.tsx" /> :
@@ -237,7 +237,7 @@ const WorkoutPlannerPage: React.FC = () => {
                                         <span className="text-gray-500 text-xs" data-id="ft84qpt93" data-path="src/pages/WorkoutPlannerPage.tsx">{section.duration}</span>
                                       </div>
                                       <Badge variant="secondary" className="text-xs" data-id="4m2224p7s" data-path="src/pages/WorkoutPlannerPage.tsx">
-                                        {section.exercises.length} exercises
+                                        {section.exercises.length} latihan
                                       </Badge>
                                     </div>
                                   </CardContent>
@@ -270,7 +270,7 @@ const WorkoutPlannerPage: React.FC = () => {
                               <div className="space-y-2" data-id="n8blzct23" data-path="src/pages/WorkoutPlannerPage.tsx">
                                       <h4 className="text-lg font-semibold text-orange-500 flex items-center space-x-2" data-id="vs8awk6o7" data-path="src/pages/WorkoutPlannerPage.tsx">
                                         <Youtube className="h-5 w-5" data-id="eftu9wbcb" data-path="src/pages/WorkoutPlannerPage.tsx" />
-                                        <span data-id="ozqnf0xxe" data-path="src/pages/WorkoutPlannerPage.tsx">Follow Along Video</span>
+                                        <span data-id="ozqnf0xxe" data-path="src/pages/WorkoutPlannerPage.tsx">Video Ikuti</span>
                                       </h4>
                                       <div className="relative aspect-video bg-gray-800 rounded-lg overflow-hidden" data-id="6ovrwdahg" data-path="src/pages/WorkoutPlannerPage.tsx">
                                         <iframe
@@ -288,7 +288,7 @@ const WorkoutPlannerPage: React.FC = () => {
                                   <div data-id="w6cucyuk5" data-path="src/pages/WorkoutPlannerPage.tsx">
                                     <h4 className="text-lg font-semibold mb-4 text-white flex items-center space-x-2" data-id="3uvjlieoa" data-path="src/pages/WorkoutPlannerPage.tsx">
                                       <Target className="h-5 w-5 text-orange-500" data-id="rd6f3ztfv" data-path="src/pages/WorkoutPlannerPage.tsx" />
-                                      <span data-id="iy94xzltu" data-path="src/pages/WorkoutPlannerPage.tsx">Exercises ({section.exercises.length})</span>
+                                      <span data-id="iy94xzltu" data-path="src/pages/WorkoutPlannerPage.tsx">Latihan ({section.exercises.length})</span>
                                     </h4>
                                     <div className="space-y-4" data-id="4i6yym18b" data-path="src/pages/WorkoutPlannerPage.tsx">
                                       {section.exercises.map((exercise, exerciseIndex) =>
@@ -298,13 +298,13 @@ const WorkoutPlannerPage: React.FC = () => {
                                               <h5 className="text-lg font-semibold text-white" data-id="jpils4m6j" data-path="src/pages/WorkoutPlannerPage.tsx">{exercise.name}</h5>
                                               <div className="flex space-x-2" data-id="vbmbvxe84" data-path="src/pages/WorkoutPlannerPage.tsx">
                                                 <Badge variant="outline" className="border-blue-500 text-blue-400" data-id="tedik61jv" data-path="src/pages/WorkoutPlannerPage.tsx">
-                                                  {exercise.sets} sets
+                                                  {exercise.sets} set
                                                 </Badge>
                                                 <Badge variant="outline" className="border-green-500 text-green-400" data-id="8pm524rhz" data-path="src/pages/WorkoutPlannerPage.tsx">
                                                   {exercise.reps}
                                                 </Badge>
                                                 <Badge variant="outline" className="border-yellow-500 text-yellow-400" data-id="q82h1fcz3" data-path="src/pages/WorkoutPlannerPage.tsx">
-                                                  {exercise.rest} rest
+                                                  {exercise.rest} istirahat
                                                 </Badge>
                                               </div>
                                             </div>
@@ -335,14 +335,14 @@ const WorkoutPlannerPage: React.FC = () => {
             className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white" data-id="xwcu2ytc1" data-path="src/pages/WorkoutPlannerPage.tsx">
 
               <Dumbbell className="h-4 w-4 mr-2" data-id="87kxs9nxy" data-path="src/pages/WorkoutPlannerPage.tsx" />
-              Generate New Plan
+              Hasilkan Rencana Baru
             </Button>
             <Button
             onClick={() => navigate('/food-scanner')}
             className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white" data-id="r5h9m8uah" data-path="src/pages/WorkoutPlannerPage.tsx">
 
               <Target className="h-4 w-4 mr-2" data-id="mv3utuqfu" data-path="src/pages/WorkoutPlannerPage.tsx" />
-              Scan Your Food
+              Pindai Makanan Anda
             </Button>
           </div>
         </>

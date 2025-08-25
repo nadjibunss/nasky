@@ -29,8 +29,8 @@ const FoodScannerPage: React.FC = () => {
   const handleFileSelect = (file: File) => {
     if (!file.type.startsWith('image/')) {
       toast({
-        title: "Invalid File Type",
-        description: "Please select an image file (JPG, PNG, etc.)",
+        title: "Jenis File Tidak Valid",
+        description: "Silakan pilih file gambar (JPG, PNG, dll.)",
         variant: "destructive"
       });
       return;
@@ -38,8 +38,8 @@ const FoodScannerPage: React.FC = () => {
 
     if (file.size > 10 * 1024 * 1024) {// 10MB limit
       toast({
-        title: "File Too Large",
-        description: "Please select an image smaller than 10MB",
+        title: "File Terlalu Besar",
+        description: "Silakan pilih gambar yang lebih kecil dari 10MB",
         variant: "destructive"
       });
       return;
@@ -71,14 +71,14 @@ const FoodScannerPage: React.FC = () => {
       setScanResult(result);
 
       toast({
-        title: "Food Scanned Successfully!",
-        description: "Your food analysis is ready. Scroll down to see the results."
+        title: "Makanan Berhasil Dipindai!",
+        description: "Analisis makanan Anda sudah siap. Gulir ke bawah untuk melihat hasilnya."
       });
     } catch (error) {
       console.error('Error scanning food:', error);
       toast({
-        title: "Scan Failed",
-        description: "Failed to analyze the food image. Please try again.",
+        title: "Pemindaian Gagal",
+        description: "Gagal menganalisis gambar makanan. Silakan coba lagi.",
         variant: "destructive"
       });
     } finally {
@@ -134,7 +134,7 @@ const FoodScannerPage: React.FC = () => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]" data-id="r1awtz7wj" data-path="src/pages/FoodScannerPage.tsx">
-        <LoadingSpinner size="lg" text="Analyzing your food image..." data-id="np47s7ir1" data-path="src/pages/FoodScannerPage.tsx" />
+        <LoadingSpinner size="lg" text="Menganalisis gambar makanan Anda..." data-id="np47s7ir1" data-path="src/pages/FoodScannerPage.tsx" />
       </div>);
 
   }
@@ -144,13 +144,13 @@ const FoodScannerPage: React.FC = () => {
       {/* Header */}
       <div className="text-center space-y-4" data-id="w3o8vbaz4" data-path="src/pages/FoodScannerPage.tsx">
         <h1 className="text-4xl md:text-5xl font-bold text-white" data-id="d9mercwny" data-path="src/pages/FoodScannerPage.tsx">
-          AI{' '}
+          Pemindai Makanan{' '}
           <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent" data-id="fbftf7kr7" data-path="src/pages/FoodScannerPage.tsx">
-            Food Scanner
+            AI
           </span>
         </h1>
         <p className="text-xl text-gray-300 max-w-3xl mx-auto" data-id="tg8lrcaf7" data-path="src/pages/FoodScannerPage.tsx">
-          Upload or take a photo of your food to get instant nutritional analysis and health insights.
+          Unggah atau ambil foto makanan Anda untuk mendapatkan analisis nutrisi dan wawasan kesehatan instan.
         </p>
       </div>
 
@@ -160,10 +160,10 @@ const FoodScannerPage: React.FC = () => {
           <CardHeader className="text-center" data-id="1h583uw8d" data-path="src/pages/FoodScannerPage.tsx">
             <CardTitle className="text-2xl text-white flex items-center justify-center space-x-2" data-id="jyc329gjq" data-path="src/pages/FoodScannerPage.tsx">
               <Camera className="h-6 w-6 text-purple-500" data-id="1zai476hq" data-path="src/pages/FoodScannerPage.tsx" />
-              <span data-id="yuozpnxsp" data-path="src/pages/FoodScannerPage.tsx">Scan Your Food</span>
+              <span data-id="yuozpnxsp" data-path="src/pages/FoodScannerPage.tsx">Pindai Makanan Anda</span>
             </CardTitle>
             <CardDescription className="text-gray-300 text-lg" data-id="y0s13lpee" data-path="src/pages/FoodScannerPage.tsx">
-              Drag and drop an image or click to upload. Our AI will analyze the nutritional content instantly.
+              Seret dan lepas gambar atau klik untuk mengunggah. AI kami akan menganalisis kandungan nutrisi secara instan.
             </CardDescription>
           </CardHeader>
           <CardContent data-id="xqnj9yg9x" data-path="src/pages/FoodScannerPage.tsx">
@@ -187,7 +187,7 @@ const FoodScannerPage: React.FC = () => {
             <div className="space-y-4" data-id="o30bjkzol" data-path="src/pages/FoodScannerPage.tsx">
                   <img
                 src={previewImage}
-                alt="Food preview"
+                alt="Pratinjau makanan"
                 className="max-w-full max-h-64 mx-auto rounded-lg shadow-lg" data-id="l0v9hc7uc" data-path="src/pages/FoodScannerPage.tsx" />
 
                   <div className="flex justify-center space-x-2" data-id="hgvsb3ond" data-path="src/pages/FoodScannerPage.tsx">
@@ -197,7 +197,7 @@ const FoodScannerPage: React.FC = () => {
                   className="border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white" data-id="ukppkzzr2" data-path="src/pages/FoodScannerPage.tsx">
 
                       <Upload className="h-4 w-4 mr-2" data-id="m9h9si8x7" data-path="src/pages/FoodScannerPage.tsx" />
-                      Change Image
+                      Ubah Gambar
                     </Button>
                     <Button
                   onClick={clearResults}
@@ -205,7 +205,7 @@ const FoodScannerPage: React.FC = () => {
                   className="border-gray-500 text-gray-400 hover:bg-gray-500 hover:text-white" data-id="ihtlls08c" data-path="src/pages/FoodScannerPage.tsx">
 
                       <X className="h-4 w-4 mr-2" data-id="ljkw6wgqy" data-path="src/pages/FoodScannerPage.tsx" />
-                      Clear
+                      Hapus
                     </Button>
                   </div>
                 </div> :
@@ -213,18 +213,18 @@ const FoodScannerPage: React.FC = () => {
             <div className="space-y-4" data-id="rixbflswv" data-path="src/pages/FoodScannerPage.tsx">
                   <Camera className="h-16 w-16 mx-auto text-gray-500" data-id="d5pgmxh1d" data-path="src/pages/FoodScannerPage.tsx" />
                   <div data-id="qnt8t9hsd" data-path="src/pages/FoodScannerPage.tsx">
-                    <p className="text-lg text-white mb-2" data-id="yi2pskkqr" data-path="src/pages/FoodScannerPage.tsx">Drop your food image here</p>
-                    <p className="text-gray-400 mb-4" data-id="kry12balo" data-path="src/pages/FoodScannerPage.tsx">or</p>
+                    <p className="text-lg text-white mb-2" data-id="yi2pskkqr" data-path="src/pages/FoodScannerPage.tsx">Letakkan gambar makanan Anda di sini</p>
+                    <p className="text-gray-400 mb-4" data-id="kry12balo" data-path="src/pages/FoodScannerPage.tsx">atau</p>
                     <Button
                   onClick={() => fileInputRef.current?.click()}
                   className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white" data-id="uf8ioqyud" data-path="src/pages/FoodScannerPage.tsx">
 
                       <Upload className="h-4 w-4 mr-2" data-id="xjjf82dmc" data-path="src/pages/FoodScannerPage.tsx" />
-                      Choose File
+                      Pilih File
                     </Button>
                   </div>
                   <p className="text-gray-500 text-sm" data-id="8s9936uq7" data-path="src/pages/FoodScannerPage.tsx">
-                    Supports JPG, PNG, GIF (Max 10MB)
+                    Mendukung JPG, PNG, GIF (Maks 10MB)
                   </p>
                 </div>
             }
@@ -242,7 +242,7 @@ const FoodScannerPage: React.FC = () => {
               <CardTitle className="text-white flex items-center justify-between" data-id="9hae6il1w" data-path="src/pages/FoodScannerPage.tsx">
                 <span className="flex items-center space-x-2" data-id="dqfy2qcj3" data-path="src/pages/FoodScannerPage.tsx">
                   <Camera className="h-5 w-5 text-purple-500" data-id="4o65f8hc6" data-path="src/pages/FoodScannerPage.tsx" />
-                  <span data-id="g692zgt7u" data-path="src/pages/FoodScannerPage.tsx">Scanned Image</span>
+                  <span data-id="g692zgt7u" data-path="src/pages/FoodScannerPage.tsx">Gambar yang Dipindai</span>
                 </span>
                 <Button
                 onClick={clearResults}
@@ -251,7 +251,7 @@ const FoodScannerPage: React.FC = () => {
                 className="border-gray-500 text-gray-400 hover:bg-gray-500 hover:text-white" data-id="y9n1hukss" data-path="src/pages/FoodScannerPage.tsx">
 
                   <X className="h-4 w-4 mr-2" data-id="jfwtotki2" data-path="src/pages/FoodScannerPage.tsx" />
-                  Scan New Food
+                  Pindai Makanan Baru
                 </Button>
               </CardTitle>
             </CardHeader>
@@ -269,7 +269,7 @@ const FoodScannerPage: React.FC = () => {
             <CardHeader data-id="trda1mql6" data-path="src/pages/FoodScannerPage.tsx">
               <CardTitle className="text-white flex items-center space-x-2" data-id="z29tplhtg" data-path="src/pages/FoodScannerPage.tsx">
                 <Utensils className="h-5 w-5 text-purple-500" data-id="93j5n99pm" data-path="src/pages/FoodScannerPage.tsx" />
-                <span data-id="9q8pr86kc" data-path="src/pages/FoodScannerPage.tsx">Identified Food Items</span>
+                <span data-id="9q8pr86kc" data-path="src/pages/FoodScannerPage.tsx">Item Makanan yang Diidentifikasi</span>
               </CardTitle>
             </CardHeader>
             <CardContent data-id="ehcfcc4yb" data-path="src/pages/FoodScannerPage.tsx">
@@ -288,7 +288,7 @@ const FoodScannerPage: React.FC = () => {
             <CardHeader data-id="ktxhycf2u" data-path="src/pages/FoodScannerPage.tsx">
               <CardTitle className="text-white flex items-center space-x-2" data-id="lh8eyekqy" data-path="src/pages/FoodScannerPage.tsx">
                 <BarChart3 className="h-5 w-5 text-purple-500" data-id="mnkpa93nl" data-path="src/pages/FoodScannerPage.tsx" />
-                <span data-id="058pi8fx8" data-path="src/pages/FoodScannerPage.tsx">Nutritional Analysis</span>
+                <span data-id="058pi8fx8" data-path="src/pages/FoodScannerPage.tsx">Analisis Nutrisi</span>
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6" data-id="w606jj3k0" data-path="src/pages/FoodScannerPage.tsx">
@@ -296,7 +296,7 @@ const FoodScannerPage: React.FC = () => {
               <div className="text-center" data-id="xequw760d" data-path="src/pages/FoodScannerPage.tsx">
                 <div className="flex items-center justify-center space-x-2 mb-2" data-id="l9rk9jm9u" data-path="src/pages/FoodScannerPage.tsx">
                   <Flame className="h-5 w-5 text-orange-500" data-id="0n0hc633j" data-path="src/pages/FoodScannerPage.tsx" />
-                  <span className="text-lg text-gray-400" data-id="4kl3iq550" data-path="src/pages/FoodScannerPage.tsx">Total Calories</span>
+                  <span className="text-lg text-gray-400" data-id="4kl3iq550" data-path="src/pages/FoodScannerPage.tsx">Total Kalori</span>
                 </div>
                 <p className="text-4xl font-bold text-white" data-id="i4ekrmrrl" data-path="src/pages/FoodScannerPage.tsx">{scanResult.analysis.nutrition.calories.toFixed(0)}</p>
               </div>
@@ -332,7 +332,7 @@ const FoodScannerPage: React.FC = () => {
                         className={`h-3 ${bgColors[macro as keyof typeof bgColors]}`} data-id="5583w91s4" data-path="src/pages/FoodScannerPage.tsx" />
 
                         <p className="text-sm text-gray-500" data-id="sl6xh7qpx" data-path="src/pages/FoodScannerPage.tsx">
-                          {getMacroPercentage(value).toFixed(1)}% of macros
+                          {getMacroPercentage(value).toFixed(1)}% dari makro
                         </p>
                       </div>
                     </div>);
@@ -348,7 +348,7 @@ const FoodScannerPage: React.FC = () => {
               <CardHeader data-id="jhj3m3rje" data-path="src/pages/FoodScannerPage.tsx">
                 <CardTitle className="text-white flex items-center space-x-2" data-id="zw48wh02q" data-path="src/pages/FoodScannerPage.tsx">
                   <CheckCircle className="h-5 w-5 text-green-500" data-id="o5fgud7jk" data-path="src/pages/FoodScannerPage.tsx" />
-                  <span data-id="cj15p3hjm" data-path="src/pages/FoodScannerPage.tsx">Health Benefits</span>
+                  <span data-id="cj15p3hjm" data-path="src/pages/FoodScannerPage.tsx">Manfaat Kesehatan</span>
                 </CardTitle>
               </CardHeader>
               <CardContent data-id="llvujfiqm" data-path="src/pages/FoodScannerPage.tsx">
@@ -370,7 +370,7 @@ const FoodScannerPage: React.FC = () => {
               <CardHeader data-id="5mqm3zgj1" data-path="src/pages/FoodScannerPage.tsx">
                 <CardTitle className="text-white flex items-center space-x-2" data-id="qpyc8ylou" data-path="src/pages/FoodScannerPage.tsx">
                   <AlertTriangle className="h-5 w-5 text-orange-500" data-id="wm88hqep8" data-path="src/pages/FoodScannerPage.tsx" />
-                  <span data-id="q4odsfmfd" data-path="src/pages/FoodScannerPage.tsx">Health Considerations</span>
+                  <span data-id="q4odsfmfd" data-path="src/pages/FoodScannerPage.tsx">Pertimbangan Kesehatan</span>
                 </CardTitle>
               </CardHeader>
               <CardContent data-id="66b28te7q" data-path="src/pages/FoodScannerPage.tsx">

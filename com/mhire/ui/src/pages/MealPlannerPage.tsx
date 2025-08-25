@@ -17,7 +17,7 @@ import {
   Dumbbell // Added missing import
 } from 'lucide-react';
 import { useUserProfile } from '@/contexts/UserProfileContext';
-import { useMealPlan, Meal } from '@/contexts/MealPlanContext';
+import { useMealPlan, Meal, MealPlan } from '@/contexts/MealPlanContext';
 import { mealPlanService } from '@/services/apiService';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { useToast } from '@/hooks/use-toast';
@@ -32,13 +32,13 @@ const MealPlannerPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   const mealTypes = [
-    { key: 'breakfast', label: 'Breakfast', icon: Coffee, color: 'from-yellow-500 to-orange-500', time: '7:00 AM' },
-    { key: 'lunch', label: 'Lunch', icon: Sun, color: 'from-orange-500 to-red-500', time: '12:30 PM' },
-    { key: 'snack', label: 'Snack', icon: Cookie, color: 'from-green-500 to-teal-500', time: '3:30 PM' },
-    { key: 'dinner', label: 'Dinner', icon: Utensils, color: 'from-purple-500 to-pink-500', time: '7:00 PM' }
+    { key: 'breakfast', label: 'Sarapan', icon: Coffee, color: 'from-yellow-500 to-orange-500', time: '7:00' },
+    { key: 'lunch', label: 'Makan Siang', icon: Sun, color: 'from-orange-500 to-red-500', time: '12:30' },
+    { key: 'snack', label: 'Camilan', icon: Cookie, color: 'from-green-500 to-teal-500', time: '15:30' },
+    { key: 'dinner', label: 'Makan Malam', icon: Utensils, color: 'from-purple-500 to-pink-500', time: '19:00' }
   ];
 
-  const validateMealPlan = (plan: any): boolean => {
+  const validateMealPlan = (plan: any): plan is MealPlan => {
     console.log('Validating meal plan:', plan);
     
     if (!plan || typeof plan !== 'object') {
@@ -76,8 +76,8 @@ const MealPlannerPage: React.FC = () => {
   const generateMealPlan = async () => {
     if (!profile) {
       toast({
-        title: "Profile Required",
-        description: "Please complete your profile first to generate a meal plan.",
+        title: "Profil Diperlukan",
+        description: "Silakan lengkapi profil Anda terlebih dahulu untuk membuat rencana makan.",
         variant: "destructive"
       });
       navigate('/');
@@ -94,11 +94,11 @@ const MealPlannerPage: React.FC = () => {
 
       // Validate the response structure
       if (!validateMealPlan(generatedPlan)) {
-        throw new Error('Invalid meal plan structure received from API');
+        throw new Error('Struktur rencana makan yang diterima dari API tidak valid');
       }
 
       // Create a clean copy of the meal plan
-      const formattedMealPlan = {
+      const formattedMealPlan: MealPlan = {
         breakfast: {
           name: generatedPlan.breakfast.name,
           description: generatedPlan.breakfast.description,
@@ -153,17 +153,17 @@ const MealPlannerPage: React.FC = () => {
       setMealPlan(formattedMealPlan);
       
       toast({
-        title: "Meal Plan Generated!",
-        description: "Your personalized meal plan is ready. Click on any meal to see details."
+        title: "Rencana Makan Dihasilkan!",
+        description: "Rencana makan pribadi Anda sudah siap. Klik pada setiap makanan untuk melihat detailnya."
       });
     } catch (error) {
       console.error('Error generating meal plan:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      const errorMessage = error instanceof Error ? error.message : 'Terjadi kesalahan yang tidak diketahui';
       setError(errorMessage);
       
       toast({
-        title: "Generation Failed",
-        description: `Failed to generate meal plan: ${errorMessage}`,
+        title: "Pembuatan Gagal",
+        description: `Gagal membuat rencana makan: ${errorMessage}`,
         variant: "destructive"
       });
     } finally {
@@ -202,7 +202,10 @@ const MealPlannerPage: React.FC = () => {
     }
   };
 
-  const getMacroPercentage = (macro: number, total: number) => {
+  const getMacroPercentage = (macro: unknown, total: number) => {
+    if (typeof macro !== 'number') {
+      return 0;
+    }
     try {
       const totalMacros = getTotalMacros();
       const totalWeight = totalMacros.protein + totalMacros.carbs + totalMacros.fat;
@@ -216,7 +219,7 @@ const MealPlannerPage: React.FC = () => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <LoadingSpinner size="lg" text="Generating your personalized meal plan..." />
+        <LoadingSpinner size="lg" text="Membuat rencana makan pribadi Anda..." />
       </div>
     );
   }
@@ -227,16 +230,16 @@ const MealPlannerPage: React.FC = () => {
       <div className="space-y-8">
         <div className="text-center space-y-4">
           <h1 className="text-4xl md:text-5xl font-bold text-white">
-            Your Personal{' '}
+            Rencana Makan{' '}
             <span className="bg-gradient-to-r from-green-500 to-teal-500 bg-clip-text text-transparent">
-              Meal Plan
+              Pribadi Anda
             </span>
           </h1>
         </div>
         
         <Card className="bg-gradient-to-br from-red-800 to-red-900 border-red-500/20 max-w-2xl mx-auto">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl text-white">Error</CardTitle>
+            <CardTitle className="text-2xl text-white">Kesalahan</CardTitle>
             <CardDescription className="text-red-200">
               {error}
             </CardDescription>
@@ -246,7 +249,7 @@ const MealPlannerPage: React.FC = () => {
               onClick={generateMealPlan}
               className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600"
             >
-              Try Again
+              Coba Lagi
             </Button>
           </CardContent>
         </Card>
@@ -259,13 +262,13 @@ const MealPlannerPage: React.FC = () => {
       {/* Header */}
       <div className="text-center space-y-4">
         <h1 className="text-4xl md:text-5xl font-bold text-white">
-          Your Personal{' '}
+          Rencana Makan{' '}
           <span className="bg-gradient-to-r from-green-500 to-teal-500 bg-clip-text text-transparent">
-            Meal Plan
+            Pribadi Anda
           </span>
         </h1>
         <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-          Get a customized nutrition plan designed specifically for your goals, dietary preferences, and lifestyle.
+          Dapatkan rencana nutrisi khusus yang dirancang khusus untuk tujuan, preferensi diet, dan gaya hidup Anda.
         </p>
       </div>
 
@@ -275,10 +278,10 @@ const MealPlannerPage: React.FC = () => {
           <CardHeader className="text-center">
             <CardTitle className="text-2xl text-white flex items-center justify-center space-x-2">
               <ChefHat className="h-6 w-6 text-green-500" />
-              <span>Ready to Create Your Meal Plan?</span>
+              <span>Siap Membuat Rencana Makan Anda?</span>
             </CardTitle>
             <CardDescription className="text-gray-300 text-lg">
-              Our AI will analyze your profile and create a personalized nutrition plan that fits your goals and dietary needs.
+              AI kami akan menganalisis profil Anda dan membuat rencana nutrisi yang dipersonalisasi yang sesuai dengan tujuan dan kebutuhan diet Anda.
             </CardDescription>
           </CardHeader>
           <CardContent className="text-center">
@@ -289,11 +292,11 @@ const MealPlannerPage: React.FC = () => {
               size="lg"
             >
               <UtensilsCrossed className="h-5 w-5 mr-2" />
-              Generate My Meal Plan
+              Hasilkan Rencana Makan Saya
             </Button>
             {!profile && (
               <p className="text-red-400 text-sm mt-2">
-                Complete your profile first to generate a meal plan
+                Lengkapi profil Anda terlebih dahulu untuk membuat rencana makan
               </p>
             )}
           </CardContent>
@@ -308,7 +311,7 @@ const MealPlannerPage: React.FC = () => {
             <CardHeader>
               <CardTitle className="text-xl text-white flex items-center space-x-2">
                 <CalendarDays className="h-5 w-5 text-green-500" />
-                <span>Daily Nutrition Overview</span>
+                <span>Tinjauan Nutrisi Harian</span>
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -316,15 +319,15 @@ const MealPlannerPage: React.FC = () => {
                 <div className="text-center">
                   <div className="flex items-center justify-center space-x-2 mb-2">
                     <Flame className="h-4 w-4 text-red-500" />
-                    <span className="text-sm text-gray-400">Total Calories</span>
+                    <span className="text-sm text-gray-400">Total Kalori</span>
                   </div>
-                  <p className="text-2xl font-bold text-white">{getTotalCalories().toFixed(0)}</p>
+                  <p className="text-2xl font-bold text-white">{typeof getTotalCalories() === 'number' ? getTotalCalories().toFixed(0) : 0}</p>
                 </div>
                 
                 {Object.entries(getTotalMacros()).map(([macro, value]) => (
                   <div key={macro} className="text-center">
                     <div className="text-sm text-gray-400 mb-2 capitalize">{macro}</div>
-                    <p className="text-xl font-bold text-white">{value.toFixed(1)}g</p>
+                    <p className="text-xl font-bold text-white">{typeof value === 'number' ? value.toFixed(1) : 0}g</p>
                     <div className="mt-2">
                       <Progress
                         value={getMacroPercentage(value, getTotalCalories())}
@@ -373,14 +376,14 @@ const MealPlannerPage: React.FC = () => {
                       </CardHeader>
                       <CardContent className="space-y-4">
                         <div>
-                          <h3 className="text-lg font-semibold text-white mb-2">{meal.name || 'Unknown Meal'}</h3>
-                          <p className="text-gray-400 text-sm line-clamp-2">{meal.description || 'No description available'}</p>
+                          <h3 className="text-lg font-semibold text-white mb-2">{meal.name || 'Makanan Tidak Dikenal'}</h3>
+                          <p className="text-gray-400 text-sm line-clamp-2">{meal.description || 'Tidak ada deskripsi yang tersedia'}</p>
                         </div>
                         
                         <div className="grid grid-cols-2 gap-4">
                           <div className="text-center">
                             <p className="text-orange-500 font-bold text-lg">{meal.calories || 0}</p>
-                            <p className="text-gray-500 text-xs">Calories</p>
+                            <p className="text-gray-500 text-xs">Kalori</p>
                           </div>
                           <div className="text-center">
                             <p className="text-blue-500 font-bold text-lg">{meal.protein || 0}g</p>
@@ -390,10 +393,10 @@ const MealPlannerPage: React.FC = () => {
                         
                         <div className="flex space-x-2">
                           <Badge variant="secondary" className="text-xs">
-                            {meal.carbs || 0}g carbs
+                            {meal.carbs || 0}g karbohidrat
                           </Badge>
                           <Badge variant="secondary" className="text-xs">
-                            {meal.fat || 0}g fat
+                            {meal.fat || 0}g lemak
                           </Badge>
                         </div>
                       </CardContent>
@@ -407,10 +410,10 @@ const MealPlannerPage: React.FC = () => {
                         <div className={`p-2 rounded-lg bg-gradient-to-r ${color}`}>
                           <Icon className="h-5 w-5 text-white" />
                         </div>
-                        <span>{meal.name || 'Unknown Meal'}</span>
+                        <span>{meal.name || 'Makanan Tidak Dikenal'}</span>
                       </DialogTitle>
                       <DialogDescription className="text-gray-300 text-lg">
-                        {meal.description || 'No description available'}
+                        {meal.description || 'Tidak ada deskripsi yang tersedia'}
                       </DialogDescription>
                     </DialogHeader>
                     
@@ -419,7 +422,7 @@ const MealPlannerPage: React.FC = () => {
                       <div className="grid grid-cols-4 gap-4 p-4 bg-gray-800 rounded-lg">
                         <div className="text-center">
                           <p className="text-orange-500 font-bold text-xl">{meal.calories || 0}</p>
-                          <p className="text-gray-400 text-sm">Calories</p>
+                          <p className="text-gray-400 text-sm">Kalori</p>
                         </div>
                         <div className="text-center">
                           <p className="text-blue-500 font-bold text-xl">{meal.protein || 0}g</p>
@@ -427,23 +430,23 @@ const MealPlannerPage: React.FC = () => {
                         </div>
                         <div className="text-center">
                           <p className="text-green-500 font-bold text-xl">{meal.carbs || 0}g</p>
-                          <p className="text-gray-400 text-sm">Carbs</p>
+                          <p className="text-gray-400 text-sm">Karbohidrat</p>
                         </div>
                         <div className="text-center">
                           <p className="text-yellow-500 font-bold text-xl">{meal.fat || 0}g</p>
-                          <p className="text-gray-400 text-sm">Fat</p>
+                          <p className="text-gray-400 text-sm">Lemak</p>
                         </div>
                       </div>
                       
                       {/* Rationale */}
                       <div>
-                        <h4 className="text-lg font-semibold mb-2 text-green-500">Why This Meal?</h4>
-                        <p className="text-gray-300 leading-relaxed">{meal.rationale || 'No rationale provided'}</p>
+                        <h4 className="text-lg font-semibold mb-2 text-green-500">Mengapa Makanan Ini?</h4>
+                        <p className="text-gray-300 leading-relaxed">{meal.rationale || 'Tidak ada alasan yang diberikan'}</p>
                       </div>
                       
                       {/* Preparation Steps */}
                       <div>
-                        <h4 className="text-lg font-semibold mb-3 text-orange-500">Preparation Steps</h4>
+                        <h4 className="text-lg font-semibold mb-3 text-orange-500">Langkah-langkah Persiapan</h4>
                         {meal.preparation_steps && meal.preparation_steps.length > 0 ? (
                           <ol className="space-y-2">
                             {meal.preparation_steps.map((step, index) => (
@@ -456,7 +459,7 @@ const MealPlannerPage: React.FC = () => {
                             ))}
                           </ol>
                         ) : (
-                          <p className="text-gray-400">No preparation steps available</p>
+                          <p className="text-gray-400">Tidak ada langkah persiapan yang tersedia</p>
                         )}
                       </div>
                     </div>
@@ -474,14 +477,14 @@ const MealPlannerPage: React.FC = () => {
               className="border-green-500 text-green-500 hover:bg-green-500 hover:text-white"
             >
               <UtensilsCrossed className="h-4 w-4 mr-2" />
-              Generate New Plan
+              Hasilkan Rencana Baru
             </Button>
             <Button
               onClick={() => navigate('/workout-planner')}
               className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white"
             >
               <Dumbbell className="h-4 w-4 mr-2" />
-              Create Workout Plan
+              Buat Rencana Latihan
             </Button>
           </div>
         </>

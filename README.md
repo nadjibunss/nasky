@@ -6,7 +6,7 @@
 
 An AI-powered wellness platform that delivers personalized fitness and nutrition guidance for a smarter, healthier lifestyle. VitaFlex-AI combines FastAPI backend with OpenAI GPT-4o integration and a modern React frontend to create a comprehensive wellness companion.
 
-![Grief Compass](com/mhire/ui/public/vfai.png)
+![Grief Compass](com/mhire/ui/public/naskyai.png)
 
 ## ✨ Features
 
