@@ -12,8 +12,9 @@ services:
         value: 3.11.5
 
   # Frontend Service (React Static Site)
-  - type: static_site
+  - type: web
     name: naskyai-frontend
+    runtime: static
     buildCommand: "npm install && npm run build"
     staticPublishPath: "dist"
     routes:
