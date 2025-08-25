@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b \u0026\u0026 vite build",
+    "dev": "vite --config com/mhire/ui/vite.config.ts",
+    "build": "tsc -b && vite build --config com/mhire/ui/vite.config.ts",
     "build:dev": "vite build --mode development --mode debug",
     "lint": "eslint .",
     "preview": "vite preview"

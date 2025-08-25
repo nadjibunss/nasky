@@ -15,10 +15,10 @@ const Navigation: React.FC = () => {
   const { setIsOpen } = useChat();
 
   const navItems = [
-  { path: '/', label: 'Home', icon: Home },
-  { path: '/meal-planner', label: 'Meal Plans', icon: UtensilsCrossed },
-  { path: '/workout-planner', label: 'Workouts', icon: Dumbbell },
-  { path: '/food-scanner', label: 'Food Scanner', icon: Camera }];
+  { path: '/', label: 'Beranda', icon: Home },
+  { path: '/meal-planner', label: 'Rencana Makan', icon: UtensilsCrossed },
+  { path: '/workout-planner', label: 'Latihan', icon: Dumbbell },
+  { path: '/food-scanner', label: 'Pemindai Makanan', icon: Camera }];
 
 
   const isActive = (path: string) => location.pathname === path;
@@ -30,7 +30,7 @@ const Navigation: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2" data-id="mk6wtw7ui" data-path="src/components/Navigation.tsx">
             <Dumbbell className="h-8 w-8 text-orange-500" data-id="okpos4vkg" data-path="src/components/Navigation.tsx" />
-            <span className="text-2xl font-bold text-white" data-id="mgtme57bs" data-path="src/components/Navigation.tsx">VitaFlex AI</span>
+            <span className="text-2xl font-bold text-white" data-id="mgtme57bs" data-path="src/components/Navigation.tsx">NaskyAi</span>
           </Link>
 
           {/* Navigation Links */}
@@ -58,7 +58,7 @@ const Navigation: React.FC = () => {
               className="flex items-center space-x-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-all duration-200" data-id="nrw9rt79a" data-path="src/components/Navigation.tsx">
 
               <MessageCircle className="h-4 w-4" data-id="05n9jio15" data-path="src/components/Navigation.tsx" />
-              <span data-id="crtp4n26k" data-path="src/components/Navigation.tsx">Chat</span>
+              <span data-id="crtp4n26k" data-path="src/components/Navigation.tsx">Obrolan</span>
             </Button>
           </div>
 

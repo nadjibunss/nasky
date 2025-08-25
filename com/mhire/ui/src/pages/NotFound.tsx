@@ -35,9 +35,9 @@ const NotFound = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="space-y-4" data-id="ajaw8z5i1" data-path="src/pages/NotFound.tsx">
 
-          <h2 className="text-2xl font-semibold tracking-tight" data-id="p63quem81" data-path="src/pages/NotFound.tsx">Page Not Found</h2>
+          <h2 className="text-2xl font-semibold tracking-tight" data-id="p63quem81" data-path="src/pages/NotFound.tsx">Halaman Tidak Ditemukan</h2>
           <p className="text-muted-foreground" data-id="5oojyadml" data-path="src/pages/NotFound.tsx">
-            Sorry, the page you are looking for does not exist or has been removed.
+            Maaf, halaman yang Anda cari tidak ada atau telah dihapus.
           </p>
         </motion.div>
 
@@ -47,7 +47,7 @@ const NotFound = () => {
           transition={{ duration: 0.5, delay: 0.6 }} data-id="gzcn7fcwp" data-path="src/pages/NotFound.tsx">
 
           <Button asChild variant="default" size="lg" data-id="ecajirypw" data-path="src/pages/NotFound.tsx">
-            <a href="/" data-id="2oswwsnlo" data-path="src/pages/NotFound.tsx">Back to Home</a>
+            <a href="/" data-id="2oswwsnlo" data-path="src/pages/NotFound.tsx">Kembali ke Beranda</a>
           </Button>
         </motion.div>
       </motion.div>

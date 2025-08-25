@@ -34,12 +34,12 @@ const UserProfileForm: React.FC = () => {
   const validateForm = (): boolean => {
     const newErrors: Partial<Record<keyof UserProfile, string>> = {};
 
-    if (!formData.primary_goal) newErrors.primary_goal = 'Please select your primary goal';
-    if (!formData.weight_kg || formData.weight_kg <= 0) newErrors.weight_kg = 'Please enter a valid weight';
-    if (!formData.height_cm || formData.height_cm <= 0) newErrors.height_cm = 'Please enter a valid height';
-    if (!formData.eating_style) newErrors.eating_style = 'Please select an eating style';
-    if (!formData.caffeine_consumption) newErrors.caffeine_consumption = 'Please select caffeine consumption';
-    if (!formData.sugar_consumption) newErrors.sugar_consumption = 'Please select sugar consumption';
+    if (!formData.primary_goal) newErrors.primary_goal = 'Silakan pilih tujuan utama Anda';
+    if (!formData.weight_kg || formData.weight_kg <= 0) newErrors.weight_kg = 'Silakan masukkan berat badan yang valid';
+    if (!formData.height_cm || formData.height_cm <= 0) newErrors.height_cm = 'Silakan masukkan tinggi badan yang valid';
+    if (!formData.eating_style) newErrors.eating_style = 'Silakan pilih gaya makan';
+    if (!formData.caffeine_consumption) newErrors.caffeine_consumption = 'Silakan pilih konsumsi kafein';
+    if (!formData.sugar_consumption) newErrors.sugar_consumption = 'Silakan pilih konsumsi gula';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -67,8 +67,8 @@ const UserProfileForm: React.FC = () => {
 
     if (!validateForm()) {
       toast({
-        title: "Form Validation Error",
-        description: "Please fill in all required fields correctly.",
+        title: "Kesalahan Validasi Formulir",
+        description: "Silakan isi semua bidang yang wajib diisi dengan benar.",
         variant: "destructive"
       });
       return;
@@ -86,12 +86,12 @@ const UserProfileForm: React.FC = () => {
       sugar_consumption: formData.sugar_consumption!
     };
 
-    console.log('Submitting profile:', profile);
+    console.log('Mengirimkan profil:', profile);
     setProfile(profile);
 
     toast({
-      title: "Profile Saved!",
-      description: "Your fitness profile has been saved successfully."
+      title: "Profil Disimpan!",
+      description: "Profil kebugaran Anda telah berhasil disimpan."
     });
 
     navigate('/meal-planner');
@@ -102,10 +102,10 @@ const UserProfileForm: React.FC = () => {
       <CardHeader className="text-center" data-id="rvz57u6rl" data-path="src/components/UserProfileForm.tsx">
         <CardTitle className="text-3xl font-bold text-white flex items-center justify-center space-x-2" data-id="qgbyohpq7" data-path="src/components/UserProfileForm.tsx">
           <UserCheck className="h-8 w-8 text-orange-500" data-id="8wefzrkyk" data-path="src/components/UserProfileForm.tsx" />
-          <span data-id="5rxuhgosu" data-path="src/components/UserProfileForm.tsx">Your Fitness Profile</span>
+          <span data-id="5rxuhgosu" data-path="src/components/UserProfileForm.tsx">Profil Kebugaran Anda</span>
         </CardTitle>
         <CardDescription className="text-gray-300 text-lg" data-id="emwnoz85o" data-path="src/components/UserProfileForm.tsx">
-          Tell us about yourself to get personalized workout and meal plans
+          Beri tahu kami tentang diri Anda untuk mendapatkan rencana latihan dan makan yang dipersonalisasi
         </CardDescription>
       </CardHeader>
       
@@ -115,19 +115,19 @@ const UserProfileForm: React.FC = () => {
           <div className="space-y-2" data-id="0xjx4co29" data-path="src/components/UserProfileForm.tsx">
             <Label className="text-white flex items-center space-x-2" data-id="k72j2qg3e" data-path="src/components/UserProfileForm.tsx">
               <Target className="h-4 w-4 text-orange-500" data-id="1e5ltbuiw" data-path="src/components/UserProfileForm.tsx" />
-              <span data-id="lqi489ulj" data-path="src/components/UserProfileForm.tsx">Primary Goal *</span>
+              <span data-id="lqi489ulj" data-path="src/components/UserProfileForm.tsx">Tujuan Utama *</span>
             </Label>
             <Select
               value={formData.primary_goal}
               onValueChange={(value) => setFormData((prev) => ({ ...prev, primary_goal: value as UserProfile['primary_goal'] }))} data-id="zvycrr2hy" data-path="src/components/UserProfileForm.tsx">
 
               <SelectTrigger className="bg-gray-800 border-gray-600 text-white" data-id="gn3xcm0uv" data-path="src/components/UserProfileForm.tsx">
-                <SelectValue placeholder="Select your primary goal" data-id="mbdnc9jeu" data-path="src/components/UserProfileForm.tsx" />
+                <SelectValue placeholder="Pilih tujuan utama Anda" data-id="mbdnc9jeu" data-path="src/components/UserProfileForm.tsx" />
               </SelectTrigger>
               <SelectContent data-id="d2wuos4ss" data-path="src/components/UserProfileForm.tsx">
-                <SelectItem value="Build muscle" data-id="ykhuk2bvp" data-path="src/components/UserProfileForm.tsx">Build Muscle</SelectItem>
-                <SelectItem value="Lose weight" data-id="fdmtm7e44" data-path="src/components/UserProfileForm.tsx">Lose Weight</SelectItem>
-                <SelectItem value="Eat healthier" data-id="jzb3uncx6" data-path="src/components/UserProfileForm.tsx">Eat Healthier</SelectItem>
+                <SelectItem value="Build muscle" data-id="ykhuk2bvp" data-path="src/components/UserProfileForm.tsx">Membentuk Otot</SelectItem>
+                <SelectItem value="Lose weight" data-id="fdmtm7e44" data-path="src/components/UserProfileForm.tsx">Menurunkan Berat Badan</SelectItem>
+                <SelectItem value="Eat healthier" data-id="jzb3uncx6" data-path="src/components/UserProfileForm.tsx">Makan Lebih Sehat</SelectItem>
               </SelectContent>
             </Select>
             {errors.primary_goal && <p className="text-red-400 text-sm" data-id="qfgp91hs0" data-path="src/components/UserProfileForm.tsx">{errors.primary_goal}</p>}
@@ -138,7 +138,7 @@ const UserProfileForm: React.FC = () => {
             <div className="space-y-2" data-id="62cqaoq8q" data-path="src/components/UserProfileForm.tsx">
               <Label className="text-white flex items-center space-x-2" data-id="v0m6sabeb" data-path="src/components/UserProfileForm.tsx">
                 <Weight className="h-4 w-4 text-orange-500" data-id="rm93613vh" data-path="src/components/UserProfileForm.tsx" />
-                <span data-id="icf7a17kl" data-path="src/components/UserProfileForm.tsx">Weight (kg) *</span>
+                <span data-id="icf7a17kl" data-path="src/components/UserProfileForm.tsx">Berat (kg) *</span>
               </Label>
               <Input
                 type="number"
@@ -153,7 +153,7 @@ const UserProfileForm: React.FC = () => {
             <div className="space-y-2" data-id="27h80hb0q" data-path="src/components/UserProfileForm.tsx">
               <Label className="text-white flex items-center space-x-2" data-id="81nugnnw4" data-path="src/components/UserProfileForm.tsx">
                 <Ruler className="h-4 w-4 text-orange-500" data-id="fltihwa6b" data-path="src/components/UserProfileForm.tsx" />
-                <span data-id="r0gz7hkke" data-path="src/components/UserProfileForm.tsx">Height (cm) *</span>
+                <span data-id="r0gz7hkke" data-path="src/components/UserProfileForm.tsx">Tinggi (cm) *</span>
               </Label>
               <Input
                 type="number"
@@ -168,7 +168,7 @@ const UserProfileForm: React.FC = () => {
 
           {/* Dietary Preferences */}
           <div className="space-y-4" data-id="qezf8djz1" data-path="src/components/UserProfileForm.tsx">
-            <h3 className="text-lg font-semibold text-white" data-id="ravz8n4gu" data-path="src/components/UserProfileForm.tsx">Dietary Preferences</h3>
+            <h3 className="text-lg font-semibold text-white" data-id="ravz8n4gu" data-path="src/components/UserProfileForm.tsx">Preferensi Diet</h3>
             
             <div className="flex items-center space-x-2" data-id="w8rynuxqg" data-path="src/components/UserProfileForm.tsx">
               <Checkbox
@@ -176,7 +176,7 @@ const UserProfileForm: React.FC = () => {
                 checked={formData.is_meat_eater}
                 onCheckedChange={(checked) => setFormData((prev) => ({ ...prev, is_meat_eater: checked as boolean }))} data-id="9ej8iw1uo" data-path="src/components/UserProfileForm.tsx" />
 
-              <Label htmlFor="meat_eater" className="text-white" data-id="56ers7u9r" data-path="src/components/UserProfileForm.tsx">I eat meat</Label>
+              <Label htmlFor="meat_eater" className="text-white" data-id="56ers7u9r" data-path="src/components/UserProfileForm.tsx">Saya makan daging</Label>
             </div>
             
             <div className="flex items-center space-x-2" data-id="fugw36zeb" data-path="src/components/UserProfileForm.tsx">
@@ -185,23 +185,23 @@ const UserProfileForm: React.FC = () => {
                 checked={formData.is_lactose_intolerant}
                 onCheckedChange={(checked) => setFormData((prev) => ({ ...prev, is_lactose_intolerant: checked as boolean }))} data-id="zj7szz9z3" data-path="src/components/UserProfileForm.tsx" />
 
-              <Label htmlFor="lactose_intolerant" className="text-white" data-id="zg13p4a84" data-path="src/components/UserProfileForm.tsx">I am lactose intolerant</Label>
+              <Label htmlFor="lactose_intolerant" className="text-white" data-id="zg13p4a84" data-path="src/components/UserProfileForm.tsx">Saya intoleran laktosa</Label>
             </div>
           </div>
 
           {/* Allergies */}
           <div className="space-y-2" data-id="v1f7c8idf" data-path="src/components/UserProfileForm.tsx">
-            <Label className="text-white" data-id="za2n9txmf" data-path="src/components/UserProfileForm.tsx">Allergies</Label>
+            <Label className="text-white" data-id="za2n9txmf" data-path="src/components/UserProfileForm.tsx">Alergi</Label>
             <div className="flex space-x-2" data-id="6u6whegzl" data-path="src/components/UserProfileForm.tsx">
               <Input
                 value={allergyInput}
                 onChange={(e) => setAllergyInput(e.target.value)}
-                placeholder="Enter an allergy"
+                placeholder="Masukkan alergi"
                 className="bg-gray-800 border-gray-600 text-white flex-1"
                 onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addAllergy())} data-id="lnnuimkm8" data-path="src/components/UserProfileForm.tsx" />
 
               <Button type="button" onClick={addAllergy} variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white" data-id="6a7smlbpp" data-path="src/components/UserProfileForm.tsx">
-                Add
+                Tambah
               </Button>
             </div>
             {formData.allergies && formData.allergies.length > 0 &&
@@ -221,21 +221,21 @@ const UserProfileForm: React.FC = () => {
 
           {/* Eating Style */}
           <div className="space-y-2" data-id="c4cg8jvr0" data-path="src/components/UserProfileForm.tsx">
-            <Label className="text-white" data-id="dluidwzxp" data-path="src/components/UserProfileForm.tsx">Eating Style *</Label>
+            <Label className="text-white" data-id="dluidwzxp" data-path="src/components/UserProfileForm.tsx">Gaya Makan *</Label>
             <Select
               value={formData.eating_style}
               onValueChange={(value) => setFormData((prev) => ({ ...prev, eating_style: value as UserProfile['eating_style'] }))} data-id="qmt5mmszc" data-path="src/components/UserProfileForm.tsx">
 
               <SelectTrigger className="bg-gray-800 border-gray-600 text-white" data-id="29dm433a6" data-path="src/components/UserProfileForm.tsx">
-                <SelectValue placeholder="Select your eating style" data-id="7ir1vti78" data-path="src/components/UserProfileForm.tsx" />
+                <SelectValue placeholder="Pilih gaya makan Anda" data-id="7ir1vti78" data-path="src/components/UserProfileForm.tsx" />
               </SelectTrigger>
               <SelectContent data-id="c66akzqz7" data-path="src/components/UserProfileForm.tsx">
                 <SelectItem value="Vegan" data-id="x1yspqm37" data-path="src/components/UserProfileForm.tsx">Vegan</SelectItem>
                 <SelectItem value="Vegetarian" data-id="nga2q910t" data-path="src/components/UserProfileForm.tsx">Vegetarian</SelectItem>
                 <SelectItem value="Keto" data-id="qyrx76e1z" data-path="src/components/UserProfileForm.tsx">Keto</SelectItem>
                 <SelectItem value="Paleo" data-id="q1u0s7oyx" data-path="src/components/UserProfileForm.tsx">Paleo</SelectItem>
-                <SelectItem value="Balanced" data-id="79mio0fbd" data-path="src/components/UserProfileForm.tsx">Balanced</SelectItem>
-                <SelectItem value="None" data-id="tib7a524w" data-path="src/components/UserProfileForm.tsx">None</SelectItem>
+                <SelectItem value="Balanced" data-id="79mio0fbd" data-path="src/components/UserProfileForm.tsx">Seimbang</SelectItem>
+                <SelectItem value="None" data-id="tib7a524w" data-path="src/components/UserProfileForm.tsx">Tidak Ada</SelectItem>
               </SelectContent>
             </Select>
             {errors.eating_style && <p className="text-red-400 text-sm" data-id="m1r1qx8ar" data-path="src/components/UserProfileForm.tsx">{errors.eating_style}</p>}
@@ -244,36 +244,36 @@ const UserProfileForm: React.FC = () => {
           {/* Consumption Preferences */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4" data-id="z97usnbrq" data-path="src/components/UserProfileForm.tsx">
             <div className="space-y-2" data-id="584ln73wg" data-path="src/components/UserProfileForm.tsx">
-              <Label className="text-white" data-id="gchb4smsi" data-path="src/components/UserProfileForm.tsx">Caffeine Consumption *</Label>
+              <Label className="text-white" data-id="gchb4smsi" data-path="src/components/UserProfileForm.tsx">Konsumsi Kafein *</Label>
               <Select
                 value={formData.caffeine_consumption}
                 onValueChange={(value) => setFormData((prev) => ({ ...prev, caffeine_consumption: value as UserProfile['caffeine_consumption'] }))} data-id="hzzi7sp6m" data-path="src/components/UserProfileForm.tsx">
 
                 <SelectTrigger className="bg-gray-800 border-gray-600 text-white" data-id="4et9r9zlw" data-path="src/components/UserProfileForm.tsx">
-                  <SelectValue placeholder="Select" data-id="fei1xvcn6" data-path="src/components/UserProfileForm.tsx" />
+                  <SelectValue placeholder="Pilih" data-id="fei1xvcn6" data-path="src/components/UserProfileForm.tsx" />
                 </SelectTrigger>
                 <SelectContent data-id="kaxflgvwf" data-path="src/components/UserProfileForm.tsx">
-                  <SelectItem value="None" data-id="d317ukmtg" data-path="src/components/UserProfileForm.tsx">None</SelectItem>
-                  <SelectItem value="Occasionally" data-id="hq6kzn946" data-path="src/components/UserProfileForm.tsx">Occasionally</SelectItem>
-                  <SelectItem value="Regularly" data-id="7jq509my6" data-path="src/components/UserProfileForm.tsx">Regularly</SelectItem>
+                  <SelectItem value="None" data-id="d317ukmtg" data-path="src/components/UserProfileForm.tsx">Tidak Ada</SelectItem>
+                  <SelectItem value="Occasionally" data-id="hq6kzn946" data-path="src/components/UserProfileForm.tsx">Kadang-kadang</SelectItem>
+                  <SelectItem value="Regularly" data-id="7jq509my6" data-path="src/components/UserProfileForm.tsx">Secara teratur</SelectItem>
                 </SelectContent>
               </Select>
               {errors.caffeine_consumption && <p className="text-red-400 text-sm" data-id="eazt0no2u" data-path="src/components/UserProfileForm.tsx">{errors.caffeine_consumption}</p>}
             </div>
             
             <div className="space-y-2" data-id="ij9j4ig7t" data-path="src/components/UserProfileForm.tsx">
-              <Label className="text-white" data-id="w0kxkd20h" data-path="src/components/UserProfileForm.tsx">Sugar Consumption *</Label>
+              <Label className="text-white" data-id="w0kxkd20h" data-path="src/components/UserProfileForm.tsx">Konsumsi Gula *</Label>
               <Select
                 value={formData.sugar_consumption}
                 onValueChange={(value) => setFormData((prev) => ({ ...prev, sugar_consumption: value as UserProfile['sugar_consumption'] }))} data-id="w0bfa0esk" data-path="src/components/UserProfileForm.tsx">
 
                 <SelectTrigger className="bg-gray-800 border-gray-600 text-white" data-id="5t7x96vrs" data-path="src/components/UserProfileForm.tsx">
-                  <SelectValue placeholder="Select" data-id="6nezqojvu" data-path="src/components/UserProfileForm.tsx" />
+                  <SelectValue placeholder="Pilih" data-id="6nezqojvu" data-path="src/components/UserProfileForm.tsx" />
                 </SelectTrigger>
                 <SelectContent data-id="97l4y26uj" data-path="src/components/UserProfileForm.tsx">
-                  <SelectItem value="None" data-id="yqeb9e9jx" data-path="src/components/UserProfileForm.tsx">None</SelectItem>
-                  <SelectItem value="Occasionally" data-id="xlarqiuk7" data-path="src/components/UserProfileForm.tsx">Occasionally</SelectItem>
-                  <SelectItem value="Regularly" data-id="psiwdz8a2" data-path="src/components/UserProfileForm.tsx">Regularly</SelectItem>
+                  <SelectItem value="None" data-id="yqeb9e9jx" data-path="src/components/UserProfileForm.tsx">Tidak Ada</SelectItem>
+                  <SelectItem value="Occasionally" data-id="xlarqiuk7" data-path="src/components/UserProfileForm.tsx">Kadang-kadang</SelectItem>
+                  <SelectItem value="Regularly" data-id="psiwdz8a2" data-path="src/components/UserProfileForm.tsx">Secara teratur</SelectItem>
                 </SelectContent>
               </Select>
               {errors.sugar_consumption && <p className="text-red-400 text-sm" data-id="hn9flxohu" data-path="src/components/UserProfileForm.tsx">{errors.sugar_consumption}</p>}
@@ -285,7 +285,7 @@ const UserProfileForm: React.FC = () => {
             className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
             size="lg" data-id="tyrh2zkt1" data-path="src/components/UserProfileForm.tsx">
 
-            Save Profile & Continue
+            Simpan Profil & Lanjutkan
           </Button>
         </form>
       </CardContent>

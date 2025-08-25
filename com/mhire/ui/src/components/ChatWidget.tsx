@@ -54,7 +54,7 @@ const ChatWidget: React.FC = () => {
       addMessage(response, false);
     } catch (error) {
       console.error('Chat error:', error);
-      addMessage('Sorry, I encountered an error. Please try again.', false);
+      addMessage('Maaf, terjadi kesalahan. Silakan coba lagi.', false);
     } finally {
       setIsLoading(false);
     }
@@ -85,7 +85,7 @@ const ChatWidget: React.FC = () => {
       <div className="flex items-center justify-between p-4 bg-gradient-to-r from-orange-600 to-red-600 rounded-t-lg" data-id="6yg0sf8pm" data-path="src/components/ChatWidget.tsx">
         <div className="flex items-center space-x-2" data-id="2nu6vz0m1" data-path="src/components/ChatWidget.tsx">
           <Bot className="h-5 w-5 text-white" data-id="5fi0deft6" data-path="src/components/ChatWidget.tsx" />
-          <h3 className="font-semibold text-white" data-id="qifun0sv6" data-path="src/components/ChatWidget.tsx">AI Gym Coach</h3>
+          <h3 className="font-semibold text-white" data-id="qifun0sv6" data-path="src/components/ChatWidget.tsx">Pelatih Gym AI</h3>
         </div>
         <div className="flex items-center space-x-1" data-id="7s9xtmhx9" data-path="src/components/ChatWidget.tsx">
           <Button
@@ -162,7 +162,7 @@ const ChatWidget: React.FC = () => {
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Ask your AI coach..."
+              placeholder="Tanya pelatih AI Anda..."
               className="flex-1 bg-gray-800 border-gray-600 text-white placeholder-gray-400 focus:border-orange-500"
               disabled={isLoading} data-id="stusxmu5m" data-path="src/components/ChatWidget.tsx" />
 
