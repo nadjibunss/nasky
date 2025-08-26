@@ -23,8 +23,8 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./com/mhire/ui/src/*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["com/mhire/ui/src"]
+  "include": ["src"]
 }

@@ -10,6 +10,4 @@ typing-extensions
 python-multipart
 pillow
 tavily-python
-numpy
-pandas
 langgraph
